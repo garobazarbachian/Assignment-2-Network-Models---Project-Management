@@ -1,0 +1,35 @@
+import networkx as nx
+import matplotlib.pyplot as plt
+
+task_dependencies = {
+    'A': [],
+    'B': [],
+    'C': ['A'],
+    'D1': ['A'],
+    'D2': ['D1'],
+    'D3': ['D1'],
+    'D4': ['D2', 'D3'],
+    'D5': ['D4'],
+    'D6': ['D4'],
+    'D7': ['D6'],
+    'D8': ['D5', 'D7'],
+    'E': ['B', 'C'],
+    'F': ['D8', 'E'],
+    'G': ['A', 'D8'],
+    'H': ['F', 'G']
+}
+
+G = nx.DiGraph()
+
+for task in task_dependencies.keys():
+    G.add_node(task)
+
+for task, dependencies in task_dependencies.items():
+    for dependency in dependencies:
+        G.add_edge(dependency, task)
+
+pos = nx.spring_layout(G)
+
+nx.draw(G, pos, with_labels=True, node_size=2000, node_color="coral", font_size=12, font_weight="bold", arrowsize=20)
+plt.title("Directed Graph of Task Dependencies")
+plt.show()
