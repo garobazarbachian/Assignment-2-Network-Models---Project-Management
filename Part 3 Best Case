@@ -1,0 +1,36 @@
+from pulp import *
+
+#Best Case#
+
+activities = {'Describe Product':5, 'Develop Marketing Strategy':6, 'Design Brochure':4, 'Requirements Analysis':10, 'Software Design':12, 'System Design':10, 'Coding':20, 'Write Documentation':8, 'Unit Testing':8, 'System Testing':12, 'Package Deliverables':6, 'Survey Potential Market':8, 'Develop Pricing Plan':10, 'Develop Implementation Plan':8, 'Write Client Proposal':6 }
+
+activities_list = list(activities.keys())
+
+precedences = {'Describe Product': [], 'Develop Marketing Strategy': [], 'Design Brochure': ['Describe Product'], 'Requirements Analysis': ['Describe Product'], 'Software Design':['Requirements Analysis'], 'System Design': ['Requirements Analysis'], 'Coding': ['Software Design','System Design'], 'Write Documentation': ['Coding'], 'Unit Testing': ['Coding'], 'System Testing': ['Unit Testing'], 'Package Deliverables': ['Write Documentation','System Testing'], 'Survey Potential Market': ['Develop Marketing Strategy','Design Brochure'], 'Develop Pricing Plan': ['Package Deliverables','Survey Potential Market'], 'Develop Implementation Plan': ['Describe Product', 'Package Deliverables'], 'Write Client Proposal': ['Develop Pricing Plan', 'Develop Implementation Plan'] }
+
+prob = LpProblem("Critical Path", LpMinimize)
+
+start_times = {activity: LpVariable(f"start_{activity}", 0, None) for activity in activities_list}
+end_times = {activity: LpVariable(f"end_{activity}", 0, None) for activity in activities_list}
+
+for activity in activities_list:
+    prob += end_times[activity] == start_times[activity] + activities[activity], f"{activity}_duration"
+    for predecessor in precedences[activity]:
+        prob += start_times[activity] >= end_times[predecessor], f"{activity}_predecessor_{predecessor}"
+
+prob += lpSum([end_times[activity] for activity in activities_list]), "minimize_end_times"
+
+status = prob.solve()
+
+print("Best Case Critical Path Time:")
+for activity in activities_list:
+    if value(start_times[activity]) == 0:
+        print(f"{activity} starts at time 0")
+    if value(end_times[activity]) == max([value(end_times[activity]) for activity in activities_list]):
+        print(f"{activity} ends at {value(end_times[activity])} days in duration")
+
+print("\nSolution variable values:")
+for var in prob.variables():
+    if var.name != "_dummy":
+        print(var.name, "=", var.varValue)
+
