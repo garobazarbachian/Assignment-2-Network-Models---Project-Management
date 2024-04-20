@@ -1,6 +1,6 @@
-from pulp import *
-
 #Best Case#
+
+from pulp import *
 
 activities = {'Describe Product':5, 'Develop Marketing Strategy':6, 'Design Brochure':4, 'Requirements Analysis':10, 'Software Design':12, 'System Design':10, 'Coding':20, 'Write Documentation':8, 'Unit Testing':8, 'System Testing':12, 'Package Deliverables':6, 'Survey Potential Market':8, 'Develop Pricing Plan':10, 'Develop Implementation Plan':8, 'Write Client Proposal':6 }
 

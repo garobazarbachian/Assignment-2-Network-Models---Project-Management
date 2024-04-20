@@ -1,0 +1,23 @@
+import matplotlib.pyplot as plt
+import pandas as pd
+
+tasks = ['Describe Product', 'Develop Marketing Strategy', 'Design Brochure', 'Requirements Analysis', 'Software Design', 
+         'System Design', 'Coding', 'Write Documentation', 'Unit Testing', 'System Testing', 'Package Deliverables', 
+         'Survey Potential Market', 'Develop Pricing Plan', 'Develop Implementation Plan', 'Write Client Proposal']
+best_case_duration = [5, 6, 4, 10, 12, 10, 20, 8, 10, 12, 6, 8, 10, 8, 6]
+expected_duration = [8, 10, 6, 15, 18, 15, 30, 12, 15, 18, 8, 12, 15, 12, 10]
+worst_case_duration = [12, 15, 8, 20, 24, 20, 40, 16, 20, 24, 10, 16, 20, 16, 15]
+
+df_best_case = pd.DataFrame({'Task': tasks, 'Start': [0] * len(tasks), 'Duration': best_case_duration})
+df_expected = pd.DataFrame({'Task': tasks, 'Start': [0] * len(tasks), 'Duration': expected_duration})
+df_worst_case = pd.DataFrame({'Task': tasks, 'Start': [0] * len(tasks), 'Duration': worst_case_duration})
+
+fig, axs = plt.subplots(3, 1, figsize=(10, 15), sharex=True, sharey=True)
+
+for ax, df, title in zip(axs, [df_best_case, df_expected, df_worst_case], ['Best Case', 'Expected', 'Worst Case']):
+    ax.barh(df['Task'], df['Duration'], left=df['Start'], color='olive')
+    ax.set_xlabel('Duration (days)')
+    ax.set_title(title)
+
+plt.tight_layout()
+plt.show()
