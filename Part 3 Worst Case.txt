@@ -1,8 +1,8 @@
-#Expected#
+#Worst Case#
 
 from pulp import *
 
-activities = {'Describe Product':8, 'Develop Marketing Strategy':10, 'Design Brochure':6, 'Requirements Analysis':15, 'Software Design':18, 'System Design':15, 'Coding':30, 'Write Documentation':12, 'Unit Testing':15, 'System Testing':18, 'Package Deliverables':8, 'Survey Potential Market':12, 'Develop Pricing Plan':15, 'Develop Implementation Plan':12, 'Write Client Proposal':10 }
+activities = {'Describe Product':12, 'Develop Marketing Strategy':15, 'Design Brochure':8, 'Requirements Analysis':20, 'Software Design':24, 'System Design':20, 'Coding':40, 'Write Documentation':16, 'Unit Testing':20, 'System Testing':24, 'Package Deliverables':10, 'Survey Potential Market':16, 'Develop Pricing Plan':20, 'Develop Implementation Plan':16, 'Write Client Proposal':15 }
 
 activities_list = list(activities.keys())
 
@@ -22,7 +22,7 @@ prob += lpSum([end_times[activity] for activity in activities_list]), "minimize_
 
 status = prob.solve()
 
-print("Expected Critical Path Time:")
+print("Worst Critical Path Time:")
 for activity in activities_list:
     if value(start_times[activity]) == 0:
         print(f"{activity} starts at time 0")

@@ -20,4 +20,6 @@ for ax, df, title in zip(axs, [df_best_case, df_expected, df_worst_case], ['Best
     ax.set_title(title)
 
 plt.tight_layout()
+plt.savefig('Part 4 Diagram.png')
 plt.show()
+
