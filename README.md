@@ -30,28 +30,12 @@ Regarding the delivery timeline, the expected completion time for the product pr
 
 Appendix A
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+<img width="1086" alt="Screenshot 2024-04-20 at 7 36 54 PM" src="https://github.com/garobazarbachian/Assignment-2-Network-Models---Project-Management/assets/165419263/de0a9d48-e7cd-4844-a5bd-621046fa60db">
 
 Appendix B
 
-
-
-
-
+![Part 1 Diagram](https://github.com/garobazarbachian/Assignment-2-Network-Models---Project-Management/assets/165419263/da338fcd-b8bb-4490-98ac-fb64d7543ef1)
 
 Appendix C
 
-
-
+![Part 4 Diagram](https://github.com/garobazarbachian/Assignment-2-Network-Models---Project-Management/assets/165419263/9f47ca8c-6ec7-4ef0-8c0b-640eed3fb3f0)
