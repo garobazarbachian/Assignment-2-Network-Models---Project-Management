@@ -34,3 +34,41 @@ for var in prob.variables():
     if var.name != "_dummy":
         print(var.name, "=", var.varValue)
 
+#Output#
+
+Worst Critical Path Time:
+Describe Product starts at time 0
+Develop Marketing Strategy starts at time 0
+Write Client Proposal ends at 185.0 days in duration
+
+Solution variable values:
+end_Coding = 96.0
+end_Describe_Product = 12.0
+end_Design_Brochure = 20.0
+end_Develop_Implementation_Plan = 166.0
+end_Develop_Marketing_Strategy = 15.0
+end_Develop_Pricing_Plan = 170.0
+end_Package_Deliverables = 150.0
+end_Requirements_Analysis = 32.0
+end_Software_Design = 56.0
+end_Survey_Potential_Market = 36.0
+end_System_Design = 52.0
+end_System_Testing = 140.0
+end_Unit_Testing = 116.0
+end_Write_Client_Proposal = 185.0
+end_Write_Documentation = 112.0
+start_Coding = 56.0
+start_Describe_Product = 0.0
+start_Design_Brochure = 12.0
+start_Develop_Implementation_Plan = 150.0
+start_Develop_Marketing_Strategy = 0.0
+start_Develop_Pricing_Plan = 150.0
+start_Package_Deliverables = 140.0
+start_Requirements_Analysis = 12.0
+start_Software_Design = 32.0
+start_Survey_Potential_Market = 20.0
+start_System_Design = 32.0
+start_System_Testing = 116.0
+start_Unit_Testing = 96.0
+start_Write_Client_Proposal = 170.0
+start_Write_Documentation = 96.0
